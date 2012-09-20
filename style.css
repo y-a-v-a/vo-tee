@@ -1,0 +1,41 @@
+body {
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+a {
+	color: #444;
+}
+
+a:hover {
+	color: #000;
+}
+
+a:visited {
+	color: #888;
+}
+
+.item {
+	padding: 8px;
+	border: 2px solid #eee;
+	width: 240px;
+	float: left;
+	position: relative;
+	margin: 8px;
+	height: 340px;
+}
+
+.item img {
+	max-height: 340px;
+}
+
+.label {
+	color: #fff;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 40px;
+	background: #222;
+	opacity: 0.8;
+	width: 240px;
+	padding: 4px 8px;
+}

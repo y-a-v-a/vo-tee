@@ -30,4 +30,7 @@ class Session {
 		unset($_SESSION[$key]);
 	}
 	
+	static function valueExists($key) {
+		return isset($_SESSION[$key]);
+	}
 }

@@ -14,12 +14,13 @@ $key = FormHandler::getKey();
 <!doctype html>
 <html>
 	<head>
-		<title>vo-tee</title>
+		<title>vo-tee form</title>
+		<link rel="stylesheet" href="style.css" type="text/css" />
 	</head>
 	<body>
-		vo-tee submission form<br>
+		<h1>vo-tee submission form</h1>
 		<?php if ($handled === true): ?>
-			Thanks for submitting the form!<br>
+			<h2>Thanks for submitting the form!</h2>
 		<?php endif; ?>
 		<?php if(null !== Session::getSession()->getValue('msg')): ?>
 			<?php echo Session::getSession()->getValue('msg'); ?>
