@@ -4,7 +4,7 @@ include 'conf.php';
 Session::getSession()->unsetValue('loaded');
 
 $coll = new Collection();
-$imgs = $coll->getAmountOf(2);
+$imgs = $coll->getAmountOf(4);
 
 ?>
 <!doctype html>
@@ -30,16 +30,18 @@ $imgs = $coll->getAmountOf(2);
 			(function($) {
 				$(document).scroll(function() {
 					var windowSize = $(window).height();
-					if ($(document).outerHeight() == windowSize + $(document.body).scrollTop()) {
+					if (($(document).outerHeight() - 30) <= (windowSize + $(document.body).scrollTop())) {
 						$.getJSON('ajax.php').done(function(data) {
 							if (data.length > 0) {
-								var div1, div2, img;
-								div1 = $('<div>').attr('class','item');
-								div2 = $('<div>').attr('class','label');
-								div2.text('Vote!');
-								img = $('<img>').attr('src', data[0]).attr('style','width: 240px');
-								div1.append(img).append(div2);
-								$('#collection').append(div1);
+								for (var i = 0; i < data.length; i++) {
+									var div1, div2, img;
+									div1 = $('<div>').attr('class','item');
+									div2 = $('<div>').attr('class','label');
+									div2.text('Vote!');
+									img = $('<img>').attr('src', data[i]).attr('style','width: 240px');
+									div1.append(img).append(div2);
+									$('#collection').append(div1);
+								}
 								return true;
 							}
 							return false;
