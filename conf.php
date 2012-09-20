@@ -2,6 +2,10 @@
 error_reporting(E_ALL);
 // TODO db connect info
 
+if (!extension_loaded('imagick')) {
+	echo "This app needs Imagick to be able to run properly.";
+	die();
+}
 
 $path_parts = pathinfo(__FILE__);
 
