@@ -1,0 +1,13 @@
+PSD
+<?php
+$im = new Imagick('test.psd');
+$im->flattenImages();
+$im->setImageFormat('png');
+$im->writeImage('test.png');
+?>
+
+For EPS
+http://php.net/manual/fr/imagick.setresolution.php
+
+TIFF:
+http://stackoverflow.com/questions/4728687/php-converting-image-to-tiff-with-imagemagick
