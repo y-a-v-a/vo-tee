@@ -1,6 +1,13 @@
 <?php
 error_reporting(E_ALL);
-// TODO db connect info
+
+date_default_timezone_set("Europe/Amsterdam");
+
+// db connect info
+define('DB_USER','root');
+define('DB_PASSWD','');
+define('DB_DB','votee');
+define('DB_HOST','localhost');
 
 if (!extension_loaded('imagick')) {
 	echo "This app needs Imagick to be able to run properly.";

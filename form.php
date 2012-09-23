@@ -8,8 +8,6 @@ if (isset($_POST['key'])) {
 }
 $key = FormHandler::getKey();
 
-
-
 ?>
 <!doctype html>
 <html>

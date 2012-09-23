@@ -1,10 +1,15 @@
 <?php
-
+/**
+ * FormHandler class processes application form
+ */
 class FormHandler {
+	// Salt for crc32
 	const SALT = "glitch";
 	
+	// @var FormHandler
 	private static $instance = null;
 	
+	// date in YmdHis form
 	private $time;
 	
 	private function __construct() {
@@ -49,9 +54,11 @@ class FormHandler {
 			$uploadId = crc32($_POST['name'] . self::SALT . $_POST['hometown'] . $this->time);
 			// save stuff to dir and to db
 			
+			$saveDbSuccess = $this->storeData($uploadId);
+			
 			// create jpg of any PSD, EPS, AI or TIFF file
 			$saveSuccess = $this->saveFile($uploadId);
-			if ($saveSuccess === true) {
+			if ($saveSuccess === true && $saveDbSuccess === true) {
 				return true;
 			}
 		}
@@ -130,6 +137,19 @@ class FormHandler {
 			return true;
 		}
 		return false;
+	}
+	
+	private function storeData($id) {
+		$data = array();
+		$data['name'] = $_POST['name'];
+		$data['url'] = $_POST['url'];
+		$data['email'] = $_POST['email'];
+		$data['hometown'] = $_POST['hometown'];
+		$data['design'] = 'U'.$id;
+		$data['adddate'] = $this->time;
+		
+		$db = VtDb::getInstance();
+		return $db->addDesignData($data);
 	}
 }
 
