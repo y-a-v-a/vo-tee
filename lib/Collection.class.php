@@ -12,7 +12,6 @@ class Collection {
 	}
 	
 	public function getAmountOf($amount) {
-
 		$images = glob(VT_UPLOADS . DS . '*' . DS . '*.jpg');
 		$i = 0;
 		$wanted = array();
@@ -21,7 +20,8 @@ class Collection {
 			if (!in_array($image, $this->loaded)) {
 				$i++;
 				$this->loaded[] = $image;
-				$wanted[] = strstr($image, 'uploads');
+				
+				$wanted[] = $this->getImageData($image);
 				if ($i == $amount) {
 					break;
 				}
@@ -29,6 +29,24 @@ class Collection {
 		}
 		Session::getSession()->setValue('loaded', serialize($this->loaded));
 		return $wanted;
+	}
+	
+	private function getImageData($imagePath) {
+		$data = array();
+		$ip = $_SERVER['REMOTE_ADDR'];
+		
+		$info = pathinfo($imagePath);
+		$doesMatch = preg_match('/U[0-9]{9,10}/',$info['dirname'], $m);
+		if ($doesMatch == 0) {
+			VtLog::log('The image ' . $image . ' does not match the regexp in ' . __CLASS__ . ' ' . __LINE__);
+		}
+		$id = $m[0];
+		$data['votecount'] = VtDb::getInstance()->getVoteCountFor($id);
+		$data['agentVoted'] = VtDb::getInstance()->hasVoted($ip, $id);
+		$data['id'] = $id;
+		
+		$data['htpath'] = strstr($imagePath, 'uploads');
+		return $data;
 	}
 	
 }

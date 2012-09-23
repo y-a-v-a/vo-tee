@@ -46,17 +46,37 @@ class VtDb {
 		return $st->execute($data);
 	}
 	
-	public function addVote($data) {
+	public function addVote($ip, $design) {
+		$data = array();
+		$data['ip'] = $ip;
+		$data['design'] = $design;
+
 		$sql = 'INSERT INTO votes (ip, design)
-			VALUES (:ip, :design)';
+			VALUES (:ip, (SELECT id FROM design WHERE design = :design))';
 		$st = $this->connection->prepare($sql);
 		return $st->execute($data);
 	}
 	
+	public function getVoteCountFor($id) {
+		$sql = 'SELECT COUNT( * ) 
+		FROM votes
+		LEFT JOIN design ON votes.design = design.id
+		WHERE design.design = \'' . $id . '\'';
+		$res = $this->connection->query($sql)->fetch();
+		if (isset($res[0])) {
+			return $res[0];
+		}
+		return 0;
+	}
+	
+	public function hasVoted($ip, $design) {
+		$data = array();
+		$data['ip'] = $ip;
+		$data['design'] = $design;
+		$sql = 'SELECT * FROM votes WHERE ip = :ip AND design = (SELECT id FROM design WHERE design = :design)';
+		$st = $this->connection->prepare($sql);
+		$st->execute($data);
+		return count($st->fetchAll());
+	}
+	
 }
-
-
-
-
-
-

@@ -3,6 +3,13 @@ error_reporting(E_ALL);
 
 date_default_timezone_set("Europe/Amsterdam");
 
+// define if request is AJAX
+if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+	define('IS_AJAX', true);
+} else {
+	define('IS_AJAX', false);
+}
+
 // db connect info
 define('DB_USER','root');
 define('DB_PASSWD','');

@@ -9,7 +9,7 @@ if (isset($_POST['key'])) {
 $key = FormHandler::getKey();
 
 ?>
-<!doctype html>
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>vo-tee form</title>
@@ -19,6 +19,7 @@ $key = FormHandler::getKey();
 		<h1>vo-tee submission form</h1>
 		<?php if ($handled === true): ?>
 			<h2>Thanks for submitting the form!</h2>
+			<a href="index.php">Goto home</a>
 		<?php endif; ?>
 		<?php if(null !== Session::getSession()->getValue('msg')): ?>
 			<?php echo Session::getSession()->getValue('msg'); ?>

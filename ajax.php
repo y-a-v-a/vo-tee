@@ -1,7 +1,11 @@
 <?php
 include 'conf.php';
 
-$coll = new Collection();
-$imgs = $coll->getAmountOf(1);
+if(IS_AJAX) {
+	$coll = new Collection();
+	$imgs = $coll->getAmountOf(2);
 
-echo json_encode($imgs);
+	echo json_encode($imgs);
+}
+
+exit;

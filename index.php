@@ -7,7 +7,7 @@ $coll = new Collection();
 $imgs = $coll->getAmountOf(4);
 
 ?>
-<!doctype html>
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>vo-tee index</title>
@@ -20,35 +20,21 @@ $imgs = $coll->getAmountOf(4);
 		<div id="collection">
 		<?php foreach($imgs as $img) : ?>
 			<div class="item">
-				<?php echo '<img src="'.$img.'" alt="" style="width: 240px;"/>' ."\n"; ?>
-				<div class="label">Vote!</div>
+				<?php echo '<img src="'.$img['htpath'].'" alt="" style="width: 240px;"/>' ."\n"; ?>
+				<div class="label">
+					Total votes: <span id="V<?php echo $img['id'] ?>"><?php echo $img['votecount'];?></span><br>
+					<span id="M<?php echo $img['id'] ?>">
+					<?php if ($img['agentVoted'] == '0'): ?>
+						<a class="vote" id="<?php echo $img['id'] ?>">Vote!</a>
+					<?php else: ?>
+						You've voted already!
+					<?php endif; ?>
+					</span>
+				</div>
 			</div>
 		<?php endforeach; ?>
 		</div>
 		<br style="clear:both;">
-		<script>
-			(function($) {
-				$(document).scroll(function() {
-					var windowSize = $(window).height();
-					if (($(document).outerHeight() - 30) <= (windowSize + $(document.body).scrollTop())) {
-						$.getJSON('ajax.php').done(function(data) {
-							if (data.length > 0) {
-								for (var i = 0; i < data.length; i++) {
-									var div1, div2, img;
-									div1 = $('<div>').attr('class','item');
-									div2 = $('<div>').attr('class','label');
-									div2.text('Vote!');
-									img = $('<img>').attr('src', data[i]).attr('style','width: 240px');
-									div1.append(img).append(div2);
-									$('#collection').append(div1);
-								}
-								return true;
-							}
-							return false;
-						});
-					}
-				});
-			})(jQuery);
-		</script>
+		<script src="lib.js"></script>
 	</body>
 </html>
