@@ -28,7 +28,7 @@ $key = FormHandler::getKey();
 			<input type="file" name="design" accept="image/jpeg,image/tiff,image/vnd.adobe.photoshop,application/pdf,application/postscript" /><br/>
 			<input type="text" name="name" placeholder="your name" /><br/>
 			<input type="text" name="url" placeholder="your website" /><br/>
-			<input type="text" name="email" placeholer="your email address" /><br/>
+			<input type="text" name="email" placeholder="your email address" /><br/>
 			<input type="text" name="hometown" placeholder="your hometown" /><br/>
 			<input type="submit" value="Send design!" />
 		</form>
