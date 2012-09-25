@@ -51,7 +51,7 @@ class FormHandler {
 	
 	private function processForm() {
 		if ($this->isValid()) {
-			$uploadId = crc32($_POST['name'] . self::SALT . $_POST['hometown'] . $this->time);
+			$uploadId = abs(crc32($_POST['name'] . self::SALT . $_POST['hometown'] . $this->time));
 			
 			// save stuff to dir and to db
 			$saveDbSuccess = $this->storeData($uploadId);

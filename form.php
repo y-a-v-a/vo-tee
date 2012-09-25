@@ -19,7 +19,6 @@ $key = FormHandler::getKey();
 		<h1>vo-tee submission form</h1>
 		<?php if ($handled === true): ?>
 			<h2>Thanks for submitting the form!</h2>
-			<a href="index.php">Goto home</a>
 		<?php endif; ?>
 		<?php if(null !== Session::getSession()->getValue('msg')): ?>
 			<?php echo Session::getSession()->getValue('msg'); ?>
@@ -33,6 +32,7 @@ $key = FormHandler::getKey();
 			<input type="text" name="hometown" placeholder="your hometown" /><br/>
 			<input type="submit" value="Send design!" />
 		</form>
+		<a href="index.php">Goto home</a>
 	</body>
 </html>
 <?php

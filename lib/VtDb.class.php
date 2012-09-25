@@ -11,7 +11,7 @@ class VtDb {
 			$this->connection =
 				new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_DB, DB_USER, DB_PASSWD);
 		} catch(PDOException $e) {
-			VtLog::log($e->getMessage());
+			Vtlog::log($e->getMessage());
 		}
 	}
 		
@@ -30,7 +30,7 @@ class VtDb {
 		try {
 			$res = $this->connection->query($query);
 		} catch(PDOException $e) {
-			VtLog::log($e->getMessage());
+			Vtlog::log($e->getMessage());
 		}
 		return $res;
 	}

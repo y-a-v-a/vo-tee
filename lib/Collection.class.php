@@ -13,6 +13,7 @@ class Collection {
 	
 	public function getAmountOf($amount) {
 		$images = glob(VT_UPLOADS . DS . '*' . DS . '*.jpg');
+		shuffle($images);
 		$i = 0;
 		$wanted = array();
 		
@@ -38,7 +39,7 @@ class Collection {
 		$info = pathinfo($imagePath);
 		$doesMatch = preg_match('/U[0-9]{9,10}/',$info['dirname'], $m);
 		if ($doesMatch == 0) {
-			VtLog::log('The image ' . $image . ' does not match the regexp in ' . __CLASS__ . ' ' . __LINE__);
+			Vtlog::log('The image ' . $image . ' does not match the regexp in ' . __CLASS__ . ' ' . __LINE__);
 		}
 		$id = $m[0];
 		$data['votecount'] = VtDb::getInstance()->getVoteCountFor($id);
