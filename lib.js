@@ -5,6 +5,10 @@
             if (data === 'false') {
                 return false;
             }
+			if (data.limit == true) {
+				alert("You can vote 5 times max. You've reached that limit.");
+				return false;
+			}
             var count = $('#V' + data.id);
             if (!!count) {
                 count.text(data.votecount);
