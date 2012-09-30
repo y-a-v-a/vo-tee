@@ -39,3 +39,10 @@ a:visited {
 	width: 240px;
 	padding: 4px 8px;
 }
+
+input[type=text] {
+    width: 300px;
+}
+form {
+    line-height: 2;
+}
