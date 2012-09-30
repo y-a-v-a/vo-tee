@@ -13,7 +13,7 @@ var busy = false;
             if (data.agentVoted === '1') {
                 $('#' + data.id).detach();
                 console.log($('#M' + data.id));
-                $('#M' + data.id).text('You\'re vote is added!');
+                $('#M' + data.id).text('Your vote is added!');
             }
         });
 	}
