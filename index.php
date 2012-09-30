@@ -4,7 +4,7 @@ include 'conf.php';
 Session::getSession()->unsetValue('loaded');
 
 $coll = new Collection();
-$imgs = $coll->getAmountOf(10);
+$imgs = $coll->getAmountOf(4);
 
 ?>
 <!DOCTYPE html>

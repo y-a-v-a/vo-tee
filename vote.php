@@ -4,19 +4,11 @@ include 'conf.php';
 $res = false;
 
 if (isset($_GET['design']) && IS_AJAX) {
-	$db = VtDb::getInstance();
-	
 	$ip = $_SERVER['REMOTE_ADDR'];
-	if ($db->hasReachedMax($ip)) {
-		$res = array();
-		$res['limit'] = true;
-		echo json_encode($res);
-		exit;
-	}
-	
+
 	$design = $_GET['design'];
 	
-
+	$db = VtDb::getInstance();
 	if ($db->hasVoted($ip, $design) > 1) {
 		Vtlog::log($ip . ' has voted already!');
 		echo json_encode($res);

@@ -78,13 +78,4 @@ class VtDb {
 		$st->execute($data);
 		return count($st->fetchAll());
 	}
-	
-	public function hasReachedMax($ip) {
-		$data = array();
-		$data['ip'] = $ip;
-		$sql = 'SELECT * FROM votes WHERE ip = :ip';
-		$st = $this->connection->prepare($sql);
-		$st->execute($data);
-		return (count($st->fetchAll()) >= 5);
-	}
 }
