@@ -71,3 +71,23 @@ label.error {
     color: #F44;
     margin-left: 6px;
 }
+
+address {
+    font-style: normal;
+    margin: 20px 8px;
+    text-align: right;
+    font-size: 14px;
+    color: #888;
+}
+address a, address a:visited {
+    text-decoration: none;
+    font-weight: normal;
+    color: #0A46A0;
+}
+address a:hover {
+    color: #00AD50;
+    text-decoration: underline;
+}
+.container {
+    min-height: 500px;
+}

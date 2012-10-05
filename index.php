@@ -13,6 +13,8 @@ $imgs = $coll->getAmountOf(8);
 		<title>vo-tee index</title>
 		<link rel="stylesheet" href="style.css" type="text/css" />
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+		<meta charset="UTF-8">
+		<meta name="author" content="Yet Another Visual Artist - www.y-a-v-a.org">
 	</head>
 	<body>
 		<h1>Vo-tee - T-shirt design upload and rating event</h1>
@@ -37,6 +39,7 @@ $imgs = $coll->getAmountOf(8);
 		<?php endforeach; ?>
 		</div>
 		<br style="clear:both;">
+		<address>&bull; COpyLEft 2012 &bull; Yet Another Visual Artist &bull; <a href="http://www.y-a-v-a.org" target="_blank">y-a-v-a.org</a> &bull; <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank">by-nc-sa</a> &bull; <a href="https://github.com/y-a-v-a/vo-tee" target="_blank">code on github</a> &bull;</address>
 		<script src="lib.js"></script>
 	</body>
 </html>
