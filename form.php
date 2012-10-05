@@ -24,15 +24,20 @@ $key = FormHandler::getKey();
 		<?php if(null !== Session::getSession()->getValue('msg')): ?>
 			<?php echo Session::getSession()->getValue('msg'); ?>
 		<?php endif; ?>
-		<form method="post" enctype="multipart/form-data">
+		<form id="application" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="key" value="<?=$key?>" />
-			Your design: <input type="file" name="design" accept="image/jpeg,image/tiff,image/vnd.adobe.photoshop,application/pdf,application/postscript" /><br/>
-			<input type="text" name="name" placeholder="Your name" /><br/>
-			<input type="text" name="url" placeholder="Your website" /><br/>
-			<input type="text" name="email" placeholder="Your email address" /><br/>
-			<input type="text" name="hometown" placeholder="Your hometown" /><br/>
+			Your design: <input class="required" type="file" name="design" accept="image/jpeg,image/tiff,image/vnd.adobe.photoshop,application/pdf,application/postscript" /><br/>
+			<input type="text" class="required" name="name" placeholder="Your name" /><br/>
+			<input type="text" class="url" name="url" placeholder="Your website" /><br/>
+			<input type="text" class="required email" name="email" placeholder="Your email address" /><br/>
+			<input type="text" class="required" name="hometown" placeholder="Your hometown" /><br/>
 			<input type="submit" value="Submit design!" />
 		</form>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+		<script src="http://jzaefferer.github.com/jquery-validation/jquery.validate.js"></script>
+		<script>
+			jQuery('#application').validate();
+		</script>
 	</body>
 </html>
 <?php
