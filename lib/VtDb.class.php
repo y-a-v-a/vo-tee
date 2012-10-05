@@ -78,4 +78,13 @@ class VtDb {
 		$st->execute($data);
 		return count($st->fetchAll());
 	}
+	
+	public function getApplicantInfo($id) {
+		$data = array('design' => $id);
+		$sql = 'SELECT name, hometown FROM design WHERE design = :design';
+		$st = $this->connection->prepare($sql);
+		$st->execute($data);
+		$res = $st->fetch();
+		return array('name' => $res['name'], 'hometown' => $res['hometown']);
+	}
 }

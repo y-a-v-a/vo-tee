@@ -22,14 +22,16 @@ $imgs = $coll->getAmountOf(8);
 			<div class="item">
 				<?php echo '<img src="'.$img['htpath'].'" alt="" style="width: 240px;"/>' ."\n"; ?>
 				<div class="label">
-					Total votes: <span id="V<?php echo $img['id'] ?>"><?php echo $img['votecount'];?></span><br>
-					<span id="M<?php echo $img['id'] ?>">
-					<?php if ($img['agentVoted'] == '0'): ?>
-						<a class="vote" id="<?php echo $img['id'] ?>">Vote!</a>
-					<?php else: ?>
-						You've voted already!
-					<?php endif; ?>
-					</span>
+					<span class="amount" id="V<?php echo $img['id'] ?>"><?php echo $img['votecount'];?></span> vote(s) for <?php echo $img['createdBy']['name']; ?> from <?php echo $img['createdBy']['hometown']; ?>
+					<div class="action">
+						<span id="M<?php echo $img['id'] ?>">
+						<?php if ($img['agentVoted'] == '0'): ?>
+							<a class="vote" id="<?php echo $img['id'] ?>">Vote</a>
+						<?php else: ?>
+							Thanks for your vote.
+						<?php endif; ?>
+						</span>
+					</div>
 				</div>
 			</div>
 		<?php endforeach; ?>

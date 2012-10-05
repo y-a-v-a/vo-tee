@@ -45,6 +45,7 @@ class Collection {
 		$data['votecount'] = VtDb::getInstance()->getVoteCountFor($id);
 		$data['agentVoted'] = VtDb::getInstance()->hasVoted($ip, $id);
 		$data['id'] = $id;
+		$data['createdBy'] = VtDb::getInstance()->getApplicantInfo($id);
 		
 		$data['htpath'] = strstr($imagePath, 'uploads');
 		return $data;
