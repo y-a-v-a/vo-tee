@@ -50,9 +50,10 @@ class VtDb {
 		$data = array();
 		$data['ip'] = $ip;
 		$data['design'] = $design;
+		$data['adddate'] = date('YmdHis');
 
-		$sql = 'INSERT INTO votes (ip, design)
-			VALUES (:ip, (SELECT id FROM design WHERE design = :design))';
+		$sql = 'INSERT INTO votes (ip, design, adddate)
+			VALUES (:ip, (SELECT id FROM design WHERE design = :design), :adddate)';
 		$st = $this->connection->prepare($sql);
 		return $st->execute($data);
 	}

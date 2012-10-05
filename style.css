@@ -23,7 +23,7 @@ a:visited {
 	float: left;
 	position: relative;
 	margin: 8px;
-	height: 360px;
+	height: 412px;
 }
 
 .item img {
@@ -39,6 +39,7 @@ a:visited {
 	background: #fff;
 	width: 240px;
 	padding: 8px;
+	border-top: 2px solid #eee;
 }
 
 input[type=text] {
