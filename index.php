@@ -17,7 +17,7 @@ $imgs = $coll->getAmountOf(8);
 		<meta name="author" content="Yet Another Visual Artist - www.y-a-v-a.org">
 	</head>
 	<body>
-		<h1>Vo-tee - T-shirt design upload and rating event</h1>
+		<h1><img src="img/GLITCH_2112_small.gif" alt="GLITCH" />&nbsp;Vo-tee - T-shirt design upload and rating event</h1>
 		<h2><a href="form.php">Upload your image</a></h2>
 		<div id="collection">
 		<?php foreach($imgs as $img) : ?>
