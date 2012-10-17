@@ -12,6 +12,10 @@ class FormHandler {
 	// date in YmdHis form
 	private $time;
 	
+	private $mimes = array('image/jpeg','image/jpg','application/pdf',
+						'image/vnd.adobe.photoshop','image/tiff',
+						'application/postscript');
+	
 	private function __construct() {
 		$this->time = date('YmdHis');
 	}
@@ -71,7 +75,8 @@ class FormHandler {
 				&& isset($_POST['name']) && strlen($_POST['name']) > 0
 				&& isset($_POST['url']) && strlen($_POST['url']) > 0
 				&& isset($_POST['email']) && strlen($_POST['email']) > 0
-				&& isset($_POST['hometown']) && strlen($_POST['hometown']) > 0;
+				&& isset($_POST['hometown']) && strlen($_POST['hometown']) > 0
+				&& in_array($_FILES['design']['type'], $this->mimes);
 		if ($_FILES['design']['error'] !== UPLOAD_ERR_OK) {
 			Vtlog::log("File upload error: " . $_FILES['design']['error']);
 		}

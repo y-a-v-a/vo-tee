@@ -29,11 +29,12 @@ $key = FormHandler::getKey();
 		<?php endif; ?>
 		<form id="application" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="key" value="<?=$key?>" />
-			Your design: <input class="required" type="file" name="design" accept="image/jpeg,image/tiff,image/vnd.adobe.photoshop,application/pdf,application/postscript" /><br/>
-			<input type="text" class="required" name="name" placeholder="Your name" /><br/>
-			<input type="text" class="url" name="url" placeholder="Your website" /><br/>
-			<input type="text" class="required email" name="email" placeholder="Your email address" /><br/>
-			<input type="text" class="required" name="hometown" placeholder="Your hometown" /><br/>
+			Your design: <input class="required" type="file" name="design" accept="image/jpeg,image/tiff,image/vnd.adobe.photoshop,application/pdf,application/postscript" /><br>
+			Allowed filetypes: jpg, psd, tiff, pdf, eps, ai<br>
+			<input type="text" class="required" name="name" placeholder="Your name" /><br>
+			<input type="text" class="url" name="url" placeholder="Your website" /><br>
+			<input type="text" class="required email" name="email" placeholder="Your email address" /><br>
+			<input type="text" class="required" name="hometown" placeholder="Your hometown" /><br>
 			<input type="submit" value="Submit design!" />
 		</form>
 		</div>
