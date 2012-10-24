@@ -98,6 +98,9 @@ class FormHandler {
 				case 'image/jpg':
 					// handle jpg
 					move_uploaded_file($tmp, $path . '.jpg');
+					$im = new Imagick($path . '.jpg');
+					$im->resizeImage(240,0,imagick::FILTER_LANCZOS,1);
+					$im->writeImage($path . '.S.jpg');
 
 					break;
 				case 'application/pdf':
@@ -107,6 +110,8 @@ class FormHandler {
 					$im->flattenImages();
 					$im->setImageFormat('jpg');
 					$im->writeImage($path . '.jpg');
+					$im->resizeImage(240,0,imagick::FILTER_LANCZOS,1);
+					$im->writeImage($path . '.S.jpg');
 
 					break;
 				case 'image/vnd.adobe.photoshop':
@@ -116,6 +121,8 @@ class FormHandler {
 					$im->flattenImages();
 					$im->setImageFormat('jpg');
 					$im->writeImage($path . '.jpg');
+					$im->resizeImage(240,0,imagick::FILTER_LANCZOS,1);
+					$im->writeImage($path . '.S.jpg');
 
 					break;
 				case 'image/tiff':
@@ -124,6 +131,8 @@ class FormHandler {
 					$im = new Imagick($path . '.tiff');
 					$im->setImageFormat('jpg');
 					$im->writeImage($path . '.jpg');
+					$im->resizeImage(240,0,imagick::FILTER_LANCZOS,1);
+					$im->writeImage($path . '.S.jpg');
 
 					break;
 				case 'application/postscript':
@@ -132,6 +141,8 @@ class FormHandler {
 					$im = new Imagick($path . '.eps');
 					$im->setImageFormat('jpg');
 					$im->writeImage($path . '.jpg');
+					$im->resizeImage(240,0,imagick::FILTER_LANCZOS,1);
+					$im->writeImage($path . '.S.jpg');
 
 					break;
 				default:

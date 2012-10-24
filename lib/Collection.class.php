@@ -12,7 +12,7 @@ class Collection {
 	}
 	
 	public function getAmountOf($amount) {
-		$images = glob(VT_UPLOADS . DS . '*' . DS . '*.jpg');
+		$images = glob(VT_UPLOADS . DS . '*' . DS . '*.S.jpg');
 		shuffle($images);
 		$i = 0;
 		$wanted = array();

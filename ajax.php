@@ -2,9 +2,10 @@
 include 'conf.php';
 
 if(IS_AJAX) {
-	$amount = 2;
 	if (isset($_GET['amount'])) {
 		$amount = $_GET['amount'];
+	} else {
+		$amount = 2;
 	}
 	$coll = new Collection();
 	$imgs = $coll->getAmountOf($amount);

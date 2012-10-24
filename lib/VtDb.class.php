@@ -82,10 +82,19 @@ class VtDb {
 	
 	public function getApplicantInfo($id) {
 		$data = array('design' => $id);
-		$sql = 'SELECT name, hometown FROM design WHERE design = :design';
+		$sql = 'SELECT name, hometown, good FROM design WHERE design = :design';
 		$st = $this->connection->prepare($sql);
 		$st->execute($data);
 		$res = $st->fetch();
-		return array('name' => $res['name'], 'hometown' => $res['hometown']);
+		return array('name' => $res['name'], 'hometown' => $res['hometown'], 'good' => $res['good']);
+	}
+	
+	public function isGood($id) {
+		$data = array('design' => $id);
+		$sql = 'SELECT good FROM design WHERE design = :design';
+		$st = $this->connection->prepare($sql);
+		$st->execute($data);
+		$res = $st->fetch();
+		return $res['good'];
 	}
 }

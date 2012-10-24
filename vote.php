@@ -9,6 +9,11 @@ if (isset($_GET['design']) && IS_AJAX) {
 	$design = $_GET['design'];
 	
 	$db = VtDb::getInstance();
+	if (!$db->isGood($design)) {
+		Vtlog::log($design . ' is voted for but is not good!');
+		echo json_encode($res);
+		exit;
+	}
 	if ($db->hasVoted($ip, $design) > 1) {
 		Vtlog::log($ip . ' has voted already!');
 		echo json_encode($res);

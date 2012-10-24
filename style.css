@@ -91,3 +91,18 @@ address a:hover {
 .container {
     min-height: 500px;
 }
+
+.item.error:after {
+    content: " ";
+    position: absolute;
+    background: #fff url("error.png") no-repeat 4px 4px;
+    opacity: 0.75;
+    top: 0px;
+    left: 0px;
+    width: 256px;
+    height: 428px;
+}
+
+p > img {
+    vertical-align: middle;
+}

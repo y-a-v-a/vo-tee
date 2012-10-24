@@ -18,7 +18,7 @@ $key = FormHandler::getKey();
 		<meta name="author" content="Yet Another Visual Artist - www.y-a-v-a.org">
 	</head>
 	<body>
-		<h1><img src="img/GLITCH_2112_small.gif" alt="GLITCH" />&nbsp;Vo-tee submission form</h1>
+		<h1><a href="http://gli.tc/h" target="_blank"><img src="img/GLITCH_2112_small.gif" alt="GLITCH" /></a>&nbsp;Vo-tee submission form</h1>
 		<h2><a href="index.php">Go to overview</a></h2>
 		<div class="container">
 		<?php if ($handled === true): ?>
